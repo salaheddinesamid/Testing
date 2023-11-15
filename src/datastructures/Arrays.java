@@ -4,9 +4,10 @@ public class Arrays {
     public static void main(String[] args){
         //Single DimensionalArray
         int[] singleArr = new int[3];
-        singleArr[0] = 1;
+        //singleArr[0] = 1;
         singleArr[1] = 2;
         singleArr[2] = 3;
+        singleArr[0] = 999;
         System.out.println(singleArr[0]);
         //Multi DimensionalArray
         int[][] multiArr = {

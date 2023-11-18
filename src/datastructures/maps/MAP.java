@@ -12,12 +12,18 @@ public class MAP {
         System.out.println("Type Hello to Continue or Exit to end the program");
         String userInput = sc.nextLine();
         while(userInput != null){
+            if(userInput.equals("Hello")){
+
         System.out.println("Please Enter your ID: ");
         String id = sc.nextLine();
         mp.getCiviliansInfo(id);
         userInput = sc.nextLine();
         }
+            else{
+                userInput = null;
+            }
         mp.listAllUsers();
+        }
 
     }
     public void getCiviliansInfo(String id) throws IOException {

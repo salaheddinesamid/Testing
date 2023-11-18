@@ -1,27 +1,37 @@
 package datastructures.maps;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import javax.xml.crypto.Data;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class MAP {
-    public static void main(String[] args){
+
+    public static void main(String[] args) throws IOException {
+        MAP mp = new MAP();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Type Hello to Continue or Exit to end the program");
+        String userInput = sc.nextLine();
+        while(userInput != null){
+        System.out.println("Please Enter your ID: ");
+        String id = sc.nextLine();
+        mp.getCiviliansInfo(id);
+        userInput = sc.nextLine();
+        }
 
     }
-    public void generateData(){
-        HashMap<String,User> data = new HashMap<String, User>();
-    }
-    public void getCiviliansInfo(String ID) throws FileNotFoundException {
-        String sep = File.separator;
-        String path = "Users" + sep + "mac" + sep + "Desktop" + sep + "Data";
-        File dataFile = new File(path);
-        if(dataFile.exists()){
-            FileReader fr = new FileReader(dataFile);
-            BufferedReader bf = new BufferedReader(fr);
-            for(String line = bf.readLine();)
-
+    public void getCiviliansInfo(String id) throws IOException {
+        Database db = new Database();
+        db.generateData();
+        HashMap<String,User> d = db.dataTable;
+        if(d.get(id)!=null){
+            System.out.println("First Name: " + d.get(id).firstName);
+            System.out.println("Last Name: " + d.get(id).lastName);
+            System.out.println("Age:" + d.get(id).age);
+        }else{
+            System.out.println("Sorry there is no user registered by this ID");
         }
     }
 }

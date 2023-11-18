@@ -8,15 +8,15 @@ public class MAP {
 
     public static void main(String[] args) throws IOException {
         MAP mp = new MAP();
-        //Scanner sc = new Scanner(System.in);
-        //System.out.println("Type Hello to Continue or Exit to end the program");
-        //String userInput = sc.nextLine();
-        /*while(userInput != null){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Type Hello to Continue or Exit to end the program");
+        String userInput = sc.nextLine();
+        while(userInput != null){
         System.out.println("Please Enter your ID: ");
         String id = sc.nextLine();
         mp.getCiviliansInfo(id);
         userInput = sc.nextLine();
-        }*/
+        }
         mp.listAllUsers();
 
     }

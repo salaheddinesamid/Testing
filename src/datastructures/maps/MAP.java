@@ -5,7 +5,6 @@ import java.io.*;
 import java.util.*;
 
 public class MAP {
-
     public static void main(String[] args) throws IOException {
         MAP mp = new MAP();
         Scanner sc = new Scanner(System.in);

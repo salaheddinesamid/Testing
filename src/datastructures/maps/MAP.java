@@ -8,22 +8,13 @@ public class MAP {
     public static void main(String[] args) throws IOException {
         MAP mp = new MAP();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Type Hello to Continue or Exit to end the program");
-        String userInput = sc.nextLine();
-        while(userInput != null){
-            if(userInput.equals("Hello")){
-
-        System.out.println("Please Enter your ID: ");
-        String id = sc.nextLine();
-        mp.getCiviliansInfo(id);
-        userInput = sc.nextLine();
-        }
-            else{
-                userInput = null;
-            }
-        mp.listAllUsers();
-        }
-
+        //String userInput = sc.nextLine();
+        //System.out.println("Please Enter your ID: ");
+        //String id = sc.nextLine();
+        //mp.getCiviliansInfo(id);
+       // userInput = sc.nextLine();
+        //mp.listAllUsers();
+        mp.addCivilians();
     }
     public void getCiviliansInfo(String id) throws IOException {
         Database db = new Database();
@@ -36,6 +27,20 @@ public class MAP {
         }else{
             System.out.println("Sorry there is no user registered by this ID");
         }
+    }
+    public void addCivilians() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first name: ");
+        String firstName = sc.nextLine();
+        System.out.println("Enter the last name: ");
+        String lastName = sc.nextLine();
+        System.out.println("Enter the age: ");
+        int age = sc.nextInt();
+        System.out.println("Enter an ID");
+        String ID = sc.nextLine();
+        User user = new User(firstName,lastName,age,ID);
+        Database db = new Database();
+        db.addUser(user);
     }
     public void listAllUsers() throws IOException {
         Database db = new Database();

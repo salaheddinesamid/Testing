@@ -1,9 +1,6 @@
 package datastructures.maps;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 
 public class Database {
@@ -12,6 +9,24 @@ public class Database {
         Database db = new Database();
         db.generateData();
         System.out.println(db.dataTable.get("T315730").firstName);
+    }
+    public void addUser(User user) throws IOException {
+        this.dataTable.put(user.ID,user);
+        String firstname = user.firstName;
+        String lastname = user.lastName;
+        int age = user.age;
+        String id = user.ID;
+        String data = firstname+"_"+lastname+"_"+age+"_"+id;
+        String sep = File.separator;
+        String path = sep + "Users" + sep + "mac" + sep +"Desktop" + sep + "Data";
+        File file = new File(path);
+        try{
+            FileWriter fw = new FileWriter(file);
+            fw.write(data+"\n");
+            fw.close();
+        }catch(Exception ex){
+
+        }
     }
     public void generateData() throws IOException {
         //HashMap<String,User> userdata = new HashMap<>();
